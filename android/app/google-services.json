@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1082766315122",
+    "project_id": "travelverse-9999",
+    "storage_bucket": "travelverse-9999.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1082766315122:android:73295ebd73a8c07e1f7ceb",
+        "android_client_info": {
+          "package_name": "com.travelverse.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC-VN-sROD_ahik3P814eGLFGjTTl0lc94"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

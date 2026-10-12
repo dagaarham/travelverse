@@ -6,8 +6,8 @@ import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart' show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
 class DefaultFirebaseOptions {
-  /// False until the real project values below are filled in.
-  static const bool isConfigured = false;
+  /// Set to false to show the setup screen instead of connecting.
+  static const bool isConfigured = true;
 
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) return web;
@@ -16,17 +16,20 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'demo-api-key',
-    appId: '1:000000000000:android:0000000000000000000000',
-    messagingSenderId: '000000000000',
-    projectId: 'demo-travelverse',
+    apiKey: 'AIzaSyC-VN-sROD_ahik3P814eGLFGjTTl0lc94',
+    appId: '1:1082766315122:android:73295ebd73a8c07e1f7ceb',
+    messagingSenderId: '1082766315122',
+    projectId: 'travelverse-9999',
+    storageBucket: 'travelverse-9999.firebasestorage.app',
   );
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'demo-api-key',
-    appId: '1:000000000000:web:0000000000000000000000',
-    messagingSenderId: '000000000000',
-    projectId: 'demo-travelverse',
-    authDomain: 'demo-travelverse.firebaseapp.com',
+    apiKey: 'AIzaSyAjV0ezUCzTR1ODl0UrrU7NRrQcr1AIWDw',
+    appId: '1:1082766315122:web:bfd09545aadd17ba1f7ceb',
+    messagingSenderId: '1082766315122',
+    projectId: 'travelverse-9999',
+    authDomain: 'travelverse-9999.firebaseapp.com',
+    storageBucket: 'travelverse-9999.firebasestorage.app',
+    measurementId: 'G-STQBNZDHCG',
   );
 }
