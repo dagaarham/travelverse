@@ -1,0 +1,19 @@
+gradle-wrapper.jar
+/.gradle
+/captures/
+/gradlew
+/gradlew.bat
+/local.properties
+GeneratedPluginRegistrant.java
+.cxx/
+
+# Remember to never publicly share your keystore.
+# See https://flutter.dev/to/reference-keystore
+key.properties
+**/*.keystore
+**/*.jks
+
+# TravelVerse: the release keystore is committed on purpose so GitHub Actions
+# can sign the APK without extra setup (student project, see README).
+!app/travelverse-release.jks
+!key.properties
