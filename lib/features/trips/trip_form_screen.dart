@@ -23,7 +23,7 @@ class TripFormScreen extends ConsumerStatefulWidget {
   ConsumerState<TripFormScreen> createState() => _TripFormScreenState();
 }
 
-class _TripFormScreenState extends ConsumerState<TripFormScreen> {
+class _TripFormScreenState extends ConsumerState<TripFormScreen> with SubmitValidation<TripFormScreen> {
   final _formKey = GlobalKey<FormState>();
   final _name = TextEditingController();
   final _destination = TextEditingController();
@@ -91,7 +91,7 @@ class _TripFormScreenState extends ConsumerState<TripFormScreen> {
   }
 
   Future<void> _save() async {
-    final valid = _formKey.currentState!.validate();
+    final valid = validateForm(_formKey);
     // Past dates are allowed only when editing a trip that has already begun.
     final dateErr = _existing != null && _start == _existing!.startDate
         ? (_end == null ? 'Select an end date' : (_end!.isBefore(_start!) ? 'End date must be on or after the start date' : null))
@@ -141,6 +141,7 @@ class _TripFormScreenState extends ConsumerState<TripFormScreen> {
       appBar: AppBar(title: Text(editing ? 'Edit trip' : 'Plan a new trip')),
       body: Form(
         key: _formKey,
+        autovalidateMode: autovalidate,
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
           child: Column(

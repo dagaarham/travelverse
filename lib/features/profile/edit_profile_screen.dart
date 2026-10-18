@@ -14,7 +14,7 @@ class EditProfileScreen extends ConsumerStatefulWidget {
   ConsumerState<EditProfileScreen> createState() => _EditProfileScreenState();
 }
 
-class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
+class _EditProfileScreenState extends ConsumerState<EditProfileScreen> with SubmitValidation<EditProfileScreen> {
   final _formKey = GlobalKey<FormState>();
   late final TextEditingController _name, _phone, _city, _bio;
   bool _loading = false;
@@ -38,7 +38,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
   }
 
   Future<void> _save() async {
-    if (!_formKey.currentState!.validate()) return;
+    if (!validateForm(_formKey)) return;
     final uid = ref.read(uidProvider);
     if (uid == null) return;
     setState(() => _loading = true);
@@ -60,6 +60,7 @@ class _EditProfileScreenState extends ConsumerState<EditProfileScreen> {
       appBar: AppBar(title: const Text('Edit profile')),
       body: Form(
         key: _formKey,
+        autovalidateMode: autovalidate,
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
           child: Column(

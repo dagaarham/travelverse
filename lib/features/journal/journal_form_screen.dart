@@ -25,7 +25,7 @@ class JournalFormScreen extends ConsumerStatefulWidget {
   ConsumerState<JournalFormScreen> createState() => _JournalFormScreenState();
 }
 
-class _JournalFormScreenState extends ConsumerState<JournalFormScreen> {
+class _JournalFormScreenState extends ConsumerState<JournalFormScreen> with SubmitValidation<JournalFormScreen> {
   final _formKey = GlobalKey<FormState>();
   final _title = TextEditingController();
   final _body = TextEditingController();
@@ -148,7 +148,7 @@ class _JournalFormScreenState extends ConsumerState<JournalFormScreen> {
 
   Future<void> _save() async {
     setState(() => _submitted = true);
-    final valid = _formKey.currentState!.validate();
+    final valid = validateForm(_formKey);
     if (!valid || _mood < 1) return;
     final uid = ref.read(uidProvider);
     if (uid == null) return;
@@ -207,6 +207,7 @@ class _JournalFormScreenState extends ConsumerState<JournalFormScreen> {
       ),
       body: Form(
         key: _formKey,
+        autovalidateMode: autovalidate,
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
           child: Column(

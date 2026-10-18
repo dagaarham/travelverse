@@ -25,7 +25,7 @@ class OnboardingScreen extends ConsumerStatefulWidget {
   ConsumerState<OnboardingScreen> createState() => _OnboardingScreenState();
 }
 
-class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
+class _OnboardingScreenState extends ConsumerState<OnboardingScreen> with SubmitValidation<OnboardingScreen> {
   final _formKey = GlobalKey<FormState>();
   final _city = TextEditingController();
   final Set<String> _interests = {};
@@ -52,7 +52,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   }
 
   Future<void> _save() async {
-    final valid = _formKey.currentState!.validate();
+    final valid = validateForm(_formKey);
     setState(() {
       _interestError = _interests.length < 2 ? 'Pick at least 2 interests so we can personalise suggestions' : null;
       _styleError = _style == null ? 'Choose how you usually travel' : null;
@@ -83,6 +83,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
       appBar: AppBar(title: Text(widget.editing ? 'Travel preferences' : 'Personalise TouchGrass')),
       body: Form(
         key: _formKey,
+        autovalidateMode: autovalidate,
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 24),
           child: Column(

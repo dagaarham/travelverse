@@ -14,7 +14,7 @@ class ForgotPasswordScreen extends ConsumerStatefulWidget {
   ConsumerState<ForgotPasswordScreen> createState() => _ForgotPasswordScreenState();
 }
 
-class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
+class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> with SubmitValidation<ForgotPasswordScreen> {
   final _formKey = GlobalKey<FormState>();
   final _email = TextEditingController();
   bool _loading = false;
@@ -27,7 +27,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
   }
 
   Future<void> _submit() async {
-    if (!_formKey.currentState!.validate()) return;
+    if (!validateForm(_formKey)) return;
     setState(() => _loading = true);
     try {
       await ref.read(authRepositoryProvider).sendPasswordReset(_email.text);
@@ -62,6 +62,7 @@ class _ForgotPasswordScreenState extends ConsumerState<ForgotPasswordScreen> {
             )
           : Form(
               key: _formKey,
+              autovalidateMode: autovalidate,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [

@@ -46,7 +46,7 @@ class _AddToTripForm extends ConsumerStatefulWidget {
   ConsumerState<_AddToTripForm> createState() => _AddToTripFormState();
 }
 
-class _AddToTripFormState extends ConsumerState<_AddToTripForm> {
+class _AddToTripFormState extends ConsumerState<_AddToTripForm> with SubmitValidation<_AddToTripForm> {
   final _formKey = GlobalKey<FormState>();
   final _note = TextEditingController();
   late Trip _trip = widget.trips.first;
@@ -60,7 +60,7 @@ class _AddToTripFormState extends ConsumerState<_AddToTripForm> {
   }
 
   Future<void> _add() async {
-    if (!_formKey.currentState!.validate()) return;
+    if (!validateForm(_formKey)) return;
     if (_trip.items.any((i) => i.placeId == widget.place.id && i.day == _day)) {
       showSnack(context, '${widget.place.name} is already on Day $_day', error: true);
       return;
@@ -77,6 +77,7 @@ class _AddToTripFormState extends ConsumerState<_AddToTripForm> {
     return SafeArea(
       child: Form(
         key: _formKey,
+        autovalidateMode: autovalidate,
         child: Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 20, 20),
           child: Column(

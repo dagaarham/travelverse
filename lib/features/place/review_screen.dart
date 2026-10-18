@@ -21,7 +21,7 @@ class ReviewScreen extends ConsumerStatefulWidget {
   ConsumerState<ReviewScreen> createState() => _ReviewScreenState();
 }
 
-class _ReviewScreenState extends ConsumerState<ReviewScreen> {
+class _ReviewScreenState extends ConsumerState<ReviewScreen> with SubmitValidation<ReviewScreen> {
   final _formKey = GlobalKey<FormState>();
   final _text = TextEditingController();
   double _overall = 0, _value = 0, _clean = 0, _access = 0;
@@ -62,7 +62,7 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
 
   Future<void> _submit() async {
     setState(() => _submitted = true);
-    final valid = _formKey.currentState!.validate();
+    final valid = validateForm(_formKey);
     if (!valid || !_ratingsValid || _recommend == null) {
       showSnack(context, 'Please complete the highlighted fields', error: true);
       return;
@@ -132,6 +132,7 @@ class _ReviewScreenState extends ConsumerState<ReviewScreen> {
       ),
       body: Form(
         key: _formKey,
+        autovalidateMode: autovalidate,
         child: SingleChildScrollView(
           padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
           child: Column(

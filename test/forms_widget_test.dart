@@ -8,8 +8,10 @@ import 'package:travelverse/features/auth/signup_screen.dart';
 import 'package:travelverse/features/trips/trip_form_screen.dart';
 import 'package:travelverse/providers.dart';
 
-Widget _app(Widget child, {List overrides = const []}) =>
-    ProviderScope(overrides: [...overrides], child: MaterialApp(home: child));
+Widget _app(Widget child, {List overrides = const []}) => ProviderScope(
+  overrides: [...overrides],
+  child: MaterialApp(home: child),
+);
 
 void main() {
   testWidgets('login shows errors for empty fields', (tester) async {
@@ -27,6 +29,17 @@ void main() {
     await tester.tap(find.byKey(const Key('login_submit')));
     await tester.pump();
     expect(find.textContaining('Enter a valid email'), findsOneWidget);
+  });
+
+  testWidgets('an error clears as soon as the field is fixed', (tester) async {
+    await tester.pumpWidget(_app(const LoginScreen()));
+    await tester.tap(find.byKey(const Key('login_submit')));
+    await tester.pump();
+    expect(find.text('Email is required'), findsOneWidget);
+    await tester.enterText(find.byKey(const Key('login_email')), 'aria@gmail.com');
+    await tester.pump();
+    expect(find.text('Email is required'), findsNothing);
+    expect(find.text('Password is required'), findsOneWidget);
   });
 
   testWidgets('sign-up validates every field and the terms checkbox', (tester) async {
@@ -51,10 +64,9 @@ void main() {
   testWidgets('trip form validates budget and dates', (tester) async {
     sqfliteFfiInit();
     final db = await tester.runAsync(() => LocalDb.open(factory: databaseFactoryFfi, name: inMemoryDatabasePath));
-    await tester.pumpWidget(_app(const TripFormScreen(), overrides: [
-      localDbProvider.overrideWithValue(db!),
-      uidProvider.overrideWithValue('u1'),
-    ]));
+    await tester.pumpWidget(
+      _app(const TripFormScreen(), overrides: [localDbProvider.overrideWithValue(db!), uidProvider.overrideWithValue('u1')]),
+    );
     await tester.enterText(find.byKey(const Key('trip_name')), 'Goa Getaway');
     await tester.enterText(find.byKey(const Key('trip_destination')), 'Goa');
     await tester.enterText(find.byKey(const Key('trip_travellers')), '25');

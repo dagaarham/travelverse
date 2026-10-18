@@ -14,6 +14,20 @@ void showSnack(BuildContext context, String message, {bool error = false}) {
     ..showSnackBar(SnackBar(content: Text(message), backgroundColor: error ? scheme.error : null));
 }
 
+/// Shows form errors only after the first submit, then re-checks the form
+/// as the user edits so each error clears as soon as it is fixed.
+mixin SubmitValidation<T extends StatefulWidget> on State<T> {
+  AutovalidateMode autovalidate = AutovalidateMode.disabled;
+
+  bool validateForm(GlobalKey<FormState> key) {
+    final valid = key.currentState!.validate();
+    if (!valid && autovalidate == AutovalidateMode.disabled) {
+      setState(() => autovalidate = AutovalidateMode.onUserInteraction);
+    }
+    return valid;
+  }
+}
+
 /// Pop-up confirmation dialog. Returns true when the user confirms.
 Future<bool> confirmDialog(
   BuildContext context, {

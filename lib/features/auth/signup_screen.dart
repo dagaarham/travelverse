@@ -16,7 +16,7 @@ class SignupScreen extends ConsumerStatefulWidget {
   ConsumerState<SignupScreen> createState() => _SignupScreenState();
 }
 
-class _SignupScreenState extends ConsumerState<SignupScreen> {
+class _SignupScreenState extends ConsumerState<SignupScreen> with SubmitValidation<SignupScreen> {
   final _formKey = GlobalKey<FormState>();
   final _name = TextEditingController();
   final _email = TextEditingController();
@@ -36,7 +36,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
   }
 
   Future<void> _submit() async {
-    final valid = _formKey.currentState!.validate();
+    final valid = validateForm(_formKey);
     setState(() => _termsError = !_acceptedTerms);
     if (!valid || !_acceptedTerms) return;
     setState(() => _loading = true);
@@ -58,6 +58,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
       subtitle: 'Join a community of travellers sharing honest experiences.',
       child: Form(
         key: _formKey,
+        autovalidateMode: autovalidate,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [

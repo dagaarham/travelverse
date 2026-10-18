@@ -15,7 +15,7 @@ class LoginScreen extends ConsumerStatefulWidget {
   ConsumerState<LoginScreen> createState() => _LoginScreenState();
 }
 
-class _LoginScreenState extends ConsumerState<LoginScreen> {
+class _LoginScreenState extends ConsumerState<LoginScreen> with SubmitValidation<LoginScreen> {
   final _formKey = GlobalKey<FormState>();
   final _email = TextEditingController();
   final _password = TextEditingController();
@@ -29,7 +29,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
   }
 
   Future<void> _submit() async {
-    if (!_formKey.currentState!.validate()) return;
+    if (!validateForm(_formKey)) return;
     setState(() => _loading = true);
     try {
       await ref.read(authRepositoryProvider).signIn(_email.text, _password.text);
@@ -48,6 +48,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
       subtitle: 'Log in to continue discovering places through travellers you trust.',
       child: Form(
         key: _formKey,
+        autovalidateMode: autovalidate,
         child: AutofillGroup(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
