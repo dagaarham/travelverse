@@ -86,7 +86,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                 alignment: WrapAlignment.center,
                 crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
-                  const Text("New to TravelVerse?"),
+                  const Text("New to TouchGrass?"),
                   TextButton(onPressed: () => context.push('/signup'), child: const Text('Create an account')),
                 ],
               ),

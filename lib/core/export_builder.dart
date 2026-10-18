@@ -39,7 +39,7 @@ class ExportBuilder {
     final b = StringBuffer()
       ..writeln(title.toUpperCase())
       ..writeln('=' * title.length)
-      ..writeln('Exported from TravelVerse on ${Fmt.date(DateTime.now())}')
+      ..writeln('Exported from TouchGrass on ${Fmt.date(DateTime.now())}')
       ..writeln();
     final sorted = [...entries]..sort((a, b) => a.date.compareTo(b.date));
     for (final e in sorted) {
@@ -62,6 +62,6 @@ class ExportBuilder {
   /// Safe file name from a user-entered title.
   static String fileName(String title, String ext) {
     final base = title.trim().toLowerCase().replaceAll(RegExp(r'[^a-z0-9]+'), '_').replaceAll(RegExp(r'^_|_$'), '');
-    return '${base.isEmpty ? 'travelverse' : base}.$ext';
+    return '${base.isEmpty ? 'touchgrass' : base}.$ext';
   }
 }

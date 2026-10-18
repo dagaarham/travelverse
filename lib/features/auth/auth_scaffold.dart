@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../shared/widgets/common.dart';
+
 /// Shared layout for login / sign-up / forgot-password screens.
 class AuthScaffold extends StatelessWidget {
   const AuthScaffold({super.key, required this.title, required this.subtitle, required this.child, this.showBack = false});
@@ -27,14 +29,10 @@ class AuthScaffold extends StatelessWidget {
                     const SizedBox(height: 12),
                     Row(
                       children: [
-                        Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(color: scheme.primary, borderRadius: BorderRadius.circular(14)),
-                          child: const Icon(Icons.travel_explore, color: Colors.white, size: 28),
-                        ),
+                        const AppLogo(size: 48),
                         const SizedBox(width: 12),
                         Text(
-                          'TravelVerse',
+                          'TouchGrass',
                           style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w800, color: scheme.primary),
                         ),
                       ],

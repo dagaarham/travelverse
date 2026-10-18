@@ -63,6 +63,9 @@ class Place {
   final String description;
 
   String get location => '$city, $state';
+
+  /// Bundled photo, downloaded from Wikimedia Commons by tool/fetch_place_photos.py.
+  String get photoAsset => 'assets/places/$id.jpg';
   String get budgetLabel => '₹' * budget;
 }
 

@@ -139,7 +139,7 @@ class HomeScreen extends ConsumerWidget {
               _Carousel(children: [for (final p in gems) PlaceCard(place: p)]),
               const SectionHeader(title: 'Community favourites', subtitle: 'Top rated by travellers'),
               _Carousel(children: [for (final p in topRated.take(8)) PlaceCard(place: p)]),
-              const SectionHeader(title: 'From the community', subtitle: 'Latest reviews by TravelVerse travellers'),
+              const SectionHeader(title: 'From the community', subtitle: 'Latest reviews by TouchGrass travellers'),
               const _CommunityFeed(),
             ],
           ),

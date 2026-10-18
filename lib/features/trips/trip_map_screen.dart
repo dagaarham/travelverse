@@ -10,7 +10,7 @@ import '../../providers.dart';
 import '../../shared/widgets/common.dart';
 import '../../shared/widgets/osm_map.dart';
 
-const _dayColors = [Color(0xFF0B7A75), Color(0xFFFF7A45), Color(0xFF6A1B9A), Color(0xFF1565C0), Color(0xFFC62828), Color(0xFF2E7D32)];
+const _dayColors = [Color(0xFF157239), Color(0xFFFF7A45), Color(0xFF6A1B9A), Color(0xFF1565C0), Color(0xFFC62828), Color(0xFF2E7D32)];
 
 /// The itinerary on a map: numbered stops joined by a route line per day.
 class TripMapScreen extends ConsumerStatefulWidget {

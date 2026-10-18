@@ -1,4 +1,4 @@
-# TravelVerse — Discover. Plan. Remember.
+# TouchGrass — Discover. Plan. Remember.
 
 A community-driven travel app built with **Flutter** for the Mobile Application Development (702AI0E002) mini project, MPSTME NMIMS, 2026-27.
 
@@ -27,9 +27,9 @@ Self-learned concepts beyond the syllabus: content-based recommendation engine, 
 
 ## Tech stack
 
-Flutter 3.47 · Dart · Material 3 (light theme) · Riverpod · go_router · Firebase Auth + Cloud Firestore · sqflite · flutter_map (OpenStreetMap) · geolocator · image_picker · share_plus · url_launcher · connectivity_plus · Wikipedia REST API (place photos).
+Flutter 3.47 · Dart · Material 3 (light theme) · Riverpod · go_router · Firebase Auth + Cloud Firestore · sqflite · flutter_map (OpenStreetMap) · geolocator · image_picker · share_plus · url_launcher · connectivity_plus · place photos bundled from Wikimedia Commons.
 
-All services used are free: Firebase Spark plan, OpenStreetMap tiles, Wikipedia API, GitHub Actions/Pages.
+All services used are free: Firebase Spark plan, OpenStreetMap tiles, Wikimedia Commons photos, GitHub Actions/Pages.
 
 ## Project structure
 
@@ -77,4 +77,4 @@ The release keystore (`android/app/travelverse-release.jks`, passwords in `andro
 
 ## Credits
 
-Maps © OpenStreetMap contributors. Place photos from Wikipedia / Wikimedia Commons under their respective licences.
+Maps © OpenStreetMap contributors. Place photos from Wikimedia Commons under the licences listed in [assets/places/CREDITS.md](assets/places/CREDITS.md).

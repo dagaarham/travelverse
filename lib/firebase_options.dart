@@ -1,4 +1,4 @@
-// Firebase configuration for the TravelVerse Firebase project.
+// Firebase configuration for the travelverse-9999 Firebase project.
 // Values come from the Firebase console (Project settings > Your apps).
 // They identify the project and are safe to ship in the app; access is
 // controlled by Firestore security rules (see firestore.rules).
@@ -12,7 +12,7 @@ class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) return web;
     if (defaultTargetPlatform == TargetPlatform.android) return android;
-    throw UnsupportedError('TravelVerse supports Android and web only.');
+    throw UnsupportedError('TouchGrass supports Android and web only.');
   }
 
   static const FirebaseOptions android = FirebaseOptions(

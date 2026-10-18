@@ -1,31 +1,26 @@
 import 'package:flutter/material.dart';
 
+import '../../shared/widgets/common.dart';
+
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final scheme = Theme.of(context).colorScheme;
     return Scaffold(
       appBar: AppBar(title: const Text('About')),
       body: ListView(
         padding: const EdgeInsets.all(20),
         children: [
-          Center(
-            child: Container(
-              padding: const EdgeInsets.all(16),
-              decoration: BoxDecoration(color: scheme.primary, borderRadius: BorderRadius.circular(22)),
-              child: const Icon(Icons.travel_explore, color: Colors.white, size: 48),
-            ),
-          ),
+          const Center(child: AppLogo(size: 80)),
           const SizedBox(height: 12),
           Center(
-            child: Text('TravelVerse', style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w800)),
+            child: Text('TouchGrass', style: Theme.of(context).textTheme.headlineSmall?.copyWith(fontWeight: FontWeight.w800)),
           ),
           const Center(child: Text('Discover. Plan. Remember.  ·  Version 1.0.0')),
           const SizedBox(height: 24),
           const Text(
-            'TravelVerse is a community-driven travel companion. Discover places through honest, structured reviews from '
+            'TouchGrass is a community-driven travel companion. Discover places through honest, structured reviews from '
             'fellow travellers, plan day-wise itineraries that work offline, and keep a photo journal of every trip.',
             style: TextStyle(height: 1.5),
           ),
@@ -44,13 +39,13 @@ class AboutScreen extends StatelessWidget {
             leading: Icon(Icons.copyright),
             title: Text('Credits'),
             subtitle: Text(
-              'Maps © OpenStreetMap contributors. Place photos from Wikipedia / Wikimedia Commons under their respective licences.',
+              'Maps © OpenStreetMap contributors. Place photos from Wikimedia Commons contributors under CC licences (full list in assets/places/CREDITS.md).',
             ),
           ),
           const SizedBox(height: 8),
           Center(
             child: TextButton(
-              onPressed: () => showLicensePage(context: context, applicationName: 'TravelVerse', applicationVersion: '1.0.0'),
+              onPressed: () => showLicensePage(context: context, applicationName: 'TouchGrass', applicationVersion: '1.0.0'),
               child: const Text('Open-source licences'),
             ),
           ),

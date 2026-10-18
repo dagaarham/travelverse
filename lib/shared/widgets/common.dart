@@ -183,3 +183,15 @@ class TagChip extends StatelessWidget {
     );
   }
 }
+
+/// The TouchGrass logo (same artwork as the launcher icon).
+class AppLogo extends StatelessWidget {
+  const AppLogo({super.key, this.size = 48});
+
+  final double size;
+
+  @override
+  Widget build(BuildContext context) {
+    return Image.asset('assets/icon/icon.png', width: size, height: size, semanticLabel: 'TouchGrass logo');
+  }
+}

@@ -23,6 +23,7 @@ import 'features/trips/trip_map_screen.dart';
 import 'features/trips/trips_screen.dart';
 import 'providers.dart';
 import 'shared/app_shell.dart';
+import 'shared/widgets/common.dart';
 
 /// Re-runs the router's redirect whenever sign-in or profile state changes.
 class _RouterRefresh extends ChangeNotifier {
@@ -133,14 +134,10 @@ class SplashScreen extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Container(
-              padding: const EdgeInsets.all(18),
-              decoration: BoxDecoration(color: scheme.primary, borderRadius: BorderRadius.circular(24)),
-              child: const Icon(Icons.travel_explore, color: Colors.white, size: 52),
-            ),
+            const AppLogo(size: 88),
             const SizedBox(height: 16),
             Text(
-              'TravelVerse',
+              'TouchGrass',
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(fontWeight: FontWeight.w800, color: scheme.primary),
             ),
             const SizedBox(height: 4),

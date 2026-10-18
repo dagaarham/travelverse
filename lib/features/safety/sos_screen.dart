@@ -54,7 +54,7 @@ class SosScreen extends ConsumerWidget {
                 children: [
                   Icon(Icons.info_outline, color: Colors.red.shade700),
                   const SizedBox(width: 12),
-                  const Expanded(child: Text('Tap a service to open the dialler. Calls are placed by your phone, not by TravelVerse.')),
+                  const Expanded(child: Text('Tap a service to open the dialler. Calls are placed by your phone, not by TouchGrass.')),
                 ],
               ),
             ),

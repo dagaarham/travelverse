@@ -81,7 +81,7 @@ class PlaceDetailScreen extends ConsumerWidget {
                 onPressed: () => SharePlus.instance.share(
                   ShareParams(
                     text:
-                        '${place.name}, ${place.location} — rated ${Fmt.rating(rating)}★ on TravelVerse.\n'
+                        '${place.name}, ${place.location} — rated ${Fmt.rating(rating)}★ on TouchGrass.\n'
                         'https://www.openstreetmap.org/?mlat=${place.lat}&mlon=${place.lng}#map=15/${place.lat}/${place.lng}',
                   ),
                 ),

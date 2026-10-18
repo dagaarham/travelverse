@@ -80,7 +80,7 @@ class _OnboardingScreenState extends ConsumerState<OnboardingScreen> {
   Widget build(BuildContext context) {
     final t = Theme.of(context).textTheme;
     return Scaffold(
-      appBar: AppBar(title: Text(widget.editing ? 'Travel preferences' : 'Personalise TravelVerse')),
+      appBar: AppBar(title: Text(widget.editing ? 'Travel preferences' : 'Personalise TouchGrass')),
       body: Form(
         key: _formKey,
         child: SingleChildScrollView(

@@ -42,7 +42,7 @@ class _SignupScreenState extends ConsumerState<SignupScreen> {
     setState(() => _loading = true);
     try {
       await ref.read(authRepositoryProvider).signUp(name: _name.text, email: _email.text, phone: _phone.text, password: _password.text);
-      showToast('Account created. Welcome to TravelVerse!');
+      showToast('Account created. Welcome to TouchGrass!');
     } catch (e) {
       if (mounted) showSnack(context, friendlyError(e), error: true);
     } finally {

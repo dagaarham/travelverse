@@ -42,21 +42,21 @@ Future<void> main() async {
       FirebaseFirestore.instance.settings = const Settings(persistenceEnabled: true);
     }
   } catch (e) {
-    runApp(_StartupErrorApp(message: 'Could not connect to TravelVerse services.\n$e'));
+    runApp(_StartupErrorApp(message: 'Could not connect to TouchGrass services.\n$e'));
     return;
   }
 
   final db = await LocalDb.open();
-  runApp(ProviderScope(overrides: [localDbProvider.overrideWithValue(db)], child: const TravelVerseApp()));
+  runApp(ProviderScope(overrides: [localDbProvider.overrideWithValue(db)], child: const TouchGrassApp()));
 }
 
-class TravelVerseApp extends ConsumerWidget {
-  const TravelVerseApp({super.key});
+class TouchGrassApp extends ConsumerWidget {
+  const TouchGrassApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return MaterialApp.router(
-      title: 'TravelVerse',
+      title: 'TouchGrass',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.light(),
       themeMode: ThemeMode.light,

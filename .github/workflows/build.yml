@@ -46,26 +46,34 @@ jobs:
           flutter build apk --release
           flutter build appbundle --release
           mkdir -p dist
-          cp build/app/outputs/flutter-apk/app-release.apk dist/TravelVerse.apk
-          cp build/app/outputs/bundle/release/app-release.aab dist/TravelVerse.aab
+          cp build/app/outputs/flutter-apk/app-release.apk dist/TouchGrass.apk
+          cp build/app/outputs/bundle/release/app-release.aab dist/TouchGrass.aab
       - uses: actions/upload-artifact@v4
         with:
-          name: TravelVerse-android
+          name: TouchGrass-android
           path: dist/
+      - name: Remove files from before the TouchGrass rename
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for f in TravelVerse.apk TravelVerse.aab; do
+            gh release delete-asset latest "$f" -R "$GITHUB_REPOSITORY" -y || true
+          done
       - name: Publish to the "latest" GitHub Release
         if: github.event_name != 'pull_request'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
-          name: TravelVerse (latest build)
+          name: TouchGrass (latest build)
           prerelease: false
           make_latest: true
           body: |
-            Install **TravelVerse.apk** on an Android phone (allow "Install unknown apps" for your browser or Files app).
+            Install **TouchGrass.apk** on an Android phone (allow "Install unknown apps" for your browser or Files app).
             Built from commit ${{ github.sha }}.
           files: |
-            dist/TravelVerse.apk
-            dist/TravelVerse.aab
+            dist/TouchGrass.apk
+            dist/TouchGrass.aab
 
   web:
     needs: test

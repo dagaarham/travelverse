@@ -18,7 +18,6 @@ import 'data/services/export_service.dart';
 import 'data/services/local_db.dart';
 import 'data/services/location_service.dart';
 import 'data/services/sync_service.dart';
-import 'data/services/wiki_service.dart';
 
 // ---------------- Infrastructure ----------------
 
@@ -33,7 +32,6 @@ final userRepositoryProvider = Provider((ref) => UserRepository(ref.watch(firest
 final placeRepositoryProvider = Provider((ref) => PlaceRepository(ref.watch(firestoreProvider)));
 final tripRepositoryProvider = Provider((ref) => TripRepository(ref.watch(localDbProvider)));
 final syncServiceProvider = Provider((ref) => SyncService(ref.watch(localDbProvider), ref.watch(firestoreProvider)));
-final wikiServiceProvider = Provider((ref) => WikiService());
 final locationServiceProvider = Provider((ref) => LocationService());
 final exportServiceProvider = Provider((ref) => ExportService());
 final recommenderProvider = Provider((ref) => const Recommender());
