@@ -27,15 +27,14 @@ NOT_A_PHOTO = re.compile(r'(map|satellite|nasa|modis|landsat|locator|diagram|log
 # with a better query instead. Re-running the script refetches only these and
 # any place that has no photo yet.
 OVERRIDES = {
-    'chokhi-dhani': 'Chokhi Dhani Jaipur',
-    'johari-bazaar': 'Johari Bazar Jaipur street',
-    'lonavala': 'Tiger Point Lonavala',
+    'chokhi-dhani': 'Chokhi Dhani Jaipur -Panchkula',
 }
 # Files already tried and rejected for not showing the place well.
 REJECTED = {
     'Johari-bazaar 0.jpg',
     'Chapati making at the Chokhi Dhani Resort Panchkula 12.jpg',
     'Monsoon @ Lonavla.jpg',
+    'Blacksmith at the Chokhi Dhani Resort Panchkula 07.jpg',
 }
 
 s = requests.Session()
