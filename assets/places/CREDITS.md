@@ -20,7 +20,7 @@ All place photos are from Wikimedia Commons under the licences listed, resized f
 | Hawa Mahal | [East_facade_Hawa_Mahal_Jaipur_from_ground_level_(July_2022)_-_img_01.jpg](https://commons.wikimedia.org/wiki/File:East_facade_Hawa_Mahal_Jaipur_from_ground_level_(July_2022)_-_img_01.jpg) | Chainwit. | CC BY-SA 4.0 |
 | Nahargarh Fort | [Nahargarh_13.jpg](https://commons.wikimedia.org/wiki/File:Nahargarh_13.jpg) | Sanyam Bahga | CC BY-SA 3.0 |
 | Johari Bazaar | [Johari Bazar.jpg](https://commons.wikimedia.org/wiki/File:Johari_Bazar.jpg) | Ramesh Lalwani | CC BY 2.0 |
-| Chokhi Dhani | [Blacksmith at the Chokhi Dhani Resort Panchkula 07.jpg](https://commons.wikimedia.org/wiki/File:Blacksmith_at_the_Chokhi_Dhani_Resort_Panchkula_07.jpg) | Kritzolina | CC BY-SA 4.0 |
+| Chokhi Dhani | [Inside Chokhi Dhani Village set up in Jaipur.jpg](https://commons.wikimedia.org/wiki/File:Inside_Chokhi_Dhani_Village_set_up_in_Jaipur.jpg) | Kishoregaru | CC BY-SA 4.0 |
 | Taj Mahal | [Taj_Mahal_(Edited).jpeg](https://commons.wikimedia.org/wiki/File:Taj_Mahal_(Edited).jpeg) | Yann; edited by Jim Carter | CC BY-SA 4.0 |
 | Agra Fort | [Agra Fort - Panoramic views (8).jpg](https://commons.wikimedia.org/wiki/File:Agra_Fort_-_Panoramic_views_(8).jpg) | Vinayaraj | CC BY-SA 3.0 |
 | Qutub Minar | [Qutb_Minar_2022.jpg](https://commons.wikimedia.org/wiki/File:Qutb_Minar_2022.jpg) | Wasir kasab | CC BY 4.0 |
