@@ -19,8 +19,8 @@ All place photos are from Wikimedia Commons under the licences listed, resized f
 | Amer Fort | [20191219_Fort_Amber,_Amer,_Jaipur_0955_9481.jpg](https://commons.wikimedia.org/wiki/File:20191219_Fort_Amber,_Amer,_Jaipur_0955_9481.jpg) | Jakub Hałun | CC BY-SA 4.0 |
 | Hawa Mahal | [East_facade_Hawa_Mahal_Jaipur_from_ground_level_(July_2022)_-_img_01.jpg](https://commons.wikimedia.org/wiki/File:East_facade_Hawa_Mahal_Jaipur_from_ground_level_(July_2022)_-_img_01.jpg) | Chainwit. | CC BY-SA 4.0 |
 | Nahargarh Fort | [Nahargarh_13.jpg](https://commons.wikimedia.org/wiki/File:Nahargarh_13.jpg) | Sanyam Bahga | CC BY-SA 3.0 |
-| Johari Bazaar | [Johari-bazaar 0.jpg](https://commons.wikimedia.org/wiki/File:Johari-bazaar_0.jpg) | Paper Jewels | CC BY 4.0 |
-| Chokhi Dhani | [Chapati making at the Chokhi Dhani Resort Panchkula 12.jpg](https://commons.wikimedia.org/wiki/File:Chapati_making_at_the_Chokhi_Dhani_Resort_Panchkula_12.jpg) | Kritzolina | CC BY-SA 4.0 |
+| Johari Bazaar | [Johari Bazar.jpg](https://commons.wikimedia.org/wiki/File:Johari_Bazar.jpg) | Ramesh Lalwani | CC BY 2.0 |
+| Chokhi Dhani | [Blacksmith at the Chokhi Dhani Resort Panchkula 07.jpg](https://commons.wikimedia.org/wiki/File:Blacksmith_at_the_Chokhi_Dhani_Resort_Panchkula_07.jpg) | Kritzolina | CC BY-SA 4.0 |
 | Taj Mahal | [Taj_Mahal_(Edited).jpeg](https://commons.wikimedia.org/wiki/File:Taj_Mahal_(Edited).jpeg) | Yann; edited by Jim Carter | CC BY-SA 4.0 |
 | Agra Fort | [Agra Fort - Panoramic views (8).jpg](https://commons.wikimedia.org/wiki/File:Agra_Fort_-_Panoramic_views_(8).jpg) | Vinayaraj | CC BY-SA 3.0 |
 | Qutub Minar | [Qutb_Minar_2022.jpg](https://commons.wikimedia.org/wiki/File:Qutb_Minar_2022.jpg) | Wasir kasab | CC BY 4.0 |
@@ -50,7 +50,7 @@ All place photos are from Wikimedia Commons under the licences listed, resized f
 | Dashashwamedh Ghat | [Dasaswamedh_ghat-varanasi_india-andres_larin.jpg](https://commons.wikimedia.org/wiki/File:Dasaswamedh_ghat-varanasi_india-andres_larin.jpg) | Saaremees | CC BY-SA 4.0 |
 | Golden Temple | [The_Golden_Temple_of_Amrithsar_7.jpg](https://commons.wikimedia.org/wiki/File:The_Golden_Temple_of_Amrithsar_7.jpg) | Shagil Kannur | CC BY-SA 4.0 |
 | Rann of Kutch | [White salt desert at Rann of Kutch.jpg](https://commons.wikimedia.org/wiki/File:White_salt_desert_at_Rann_of_Kutch.jpg) | Prof Ranga Sai | CC BY-SA 4.0 |
-| Lonavala & Tiger Point | [Monsoon @ Lonavla.jpg](https://commons.wikimedia.org/wiki/File:Monsoon_@_Lonavla.jpg) | Nimabeena | CC BY-SA 4.0 |
+| Lonavala & Tiger Point | [Tiger Point, Lonavala K.jpg](https://commons.wikimedia.org/wiki/File:Tiger_Point,_Lonavala_K.jpg) | Syed Obaid | CC BY-SA 4.0 |
 | Harishchandragad Trek | [Kalbhairav_pinnacle_Scj.jpg](https://commons.wikimedia.org/wiki/File:Kalbhairav_pinnacle_Scj.jpg) | Cj.samson | GFDL 1.2 |
 | Mohammed Ali Road | [Mumbai Minara Masjid.JPG](https://commons.wikimedia.org/wiki/File:Mumbai_Minara_Masjid.JPG) | ruffin_ready's | CC BY 2.0 |
 | Bandstand Promenade | [Mumbai_Bandstand_Promenade.jpg](https://commons.wikimedia.org/wiki/File:Mumbai_Bandstand_Promenade.jpg) | Mayur Thakare | CC BY 2.5 |
