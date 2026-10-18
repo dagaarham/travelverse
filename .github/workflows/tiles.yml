@@ -1,0 +1,29 @@
+name: Fetch map tiles for report screenshots
+on:
+  push:
+    branches: [report-tiles]
+    paths: [tiles.txt]
+permissions:
+  contents: write
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download tiles
+        run: |
+          mkdir -p tiles
+          while read t; do
+            [ -z "$t" ] && continue
+            f="tiles/$(echo $t | tr / _).png"
+            [ -f "$f" ] && continue
+            curl -sfL -A "TouchGrassStudentApp/1.0 (https://github.com/dagaarham/travelverse; NMIMS MAD mini project report)" -o "$f" "https://tile.openstreetmap.org/$t.png" || echo "failed $t"
+            sleep 0.2
+          done < tiles.txt
+          ls tiles | wc -l
+      - name: Commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git add tiles
+          git commit -m "Add map tiles" && git push || echo nothing
