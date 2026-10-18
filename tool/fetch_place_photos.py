@@ -27,12 +27,15 @@ NOT_A_PHOTO = re.compile(r'(map|satellite|nasa|modis|landsat|locator|diagram|log
 # with a better query instead. Re-running the script refetches only these and
 # any place that has no photo yet.
 OVERRIDES = {
-    'chokhi-dhani': 'Chokhi Dhani Jaipur village resort',
-    'pangong-lake': 'Pangong Tso lake Ladakh',
-    'rann-of-kutch': 'White Rann of Kutch salt desert',
-    'johari-bazaar': 'Johari Bazaar Jaipur',
-    'lonavala': 'Lonavala hills monsoon',
-    'fontainhas': 'Fontainhas Panaji houses',
+    'chokhi-dhani': 'Chokhi Dhani Jaipur',
+    'johari-bazaar': 'Johari Bazar Jaipur street',
+    'lonavala': 'Tiger Point Lonavala',
+}
+# Files already tried and rejected for not showing the place well.
+REJECTED = {
+    'Johari-bazaar 0.jpg',
+    'Chapati making at the Chokhi Dhani Resort Panchkula 12.jpg',
+    'Monsoon @ Lonavla.jpg',
 }
 
 s = requests.Session()
@@ -81,11 +84,11 @@ def article_image(title):
 
 
 def search_commons(query):
-    d = api('commons.wikimedia.org', action='query', list='search', srnamespace=6, srlimit=10,
+    d = api('commons.wikimedia.org', action='query', list='search', srnamespace=6, srlimit=20,
             srsearch=f'{query} filetype:bitmap')
     for hit in d.get('query', {}).get('search', []):
         name = hit['title'].removeprefix('File:')
-        if name.lower().endswith(('.jpg', '.jpeg', '.png')) and not NOT_A_PHOTO.search(name):
+        if name.lower().endswith(('.jpg', '.jpeg', '.png')) and not NOT_A_PHOTO.search(name) and name not in REJECTED:
             info = commons_info(name)
             if info:
                 return name, info
