@@ -21,6 +21,19 @@ SEED = ROOT / 'lib/data/seed/places_seed.dart'
 OUT = ROOT / 'assets/places'
 UA = 'TouchGrassStudentApp/1.0 (https://github.com/dagaarham/travelverse; NMIMS MAD mini project)'
 FREE = re.compile(r'(cc[- ]by|cc0|public domain|pd|gfdl|attribution)', re.I)
+NOT_A_PHOTO = re.compile(r'(map|satellite|nasa|modis|landsat|locator|diagram|logo|stamp|painting|drawing|plan)', re.I)
+
+# Places whose article image was not a good photo of the place: search Commons
+# with a better query instead. Re-running the script refetches only these and
+# any place that has no photo yet.
+OVERRIDES = {
+    'chokhi-dhani': 'Chokhi Dhani Jaipur village resort',
+    'pangong-lake': 'Pangong Tso lake Ladakh',
+    'rann-of-kutch': 'White Rann of Kutch salt desert',
+    'johari-bazaar': 'Johari Bazaar Jaipur',
+    'lonavala': 'Lonavala hills monsoon',
+    'fontainhas': 'Fontainhas Panaji houses',
+}
 
 s = requests.Session()
 s.headers['User-Agent'] = UA
@@ -72,7 +85,7 @@ def search_commons(query):
             srsearch=f'{query} filetype:bitmap')
     for hit in d.get('query', {}).get('search', []):
         name = hit['title'].removeprefix('File:')
-        if name.lower().endswith(('.jpg', '.jpeg', '.png')):
+        if name.lower().endswith(('.jpg', '.jpeg', '.png')) and not NOT_A_PHOTO.search(name):
             info = commons_info(name)
             if info:
                 return name, info
@@ -93,6 +106,19 @@ def save(url, dest):
     return dest.stat().st_size
 
 
+def load_previous_credits():
+    """Credits rows from an earlier run, keyed by place name."""
+    path = OUT / 'CREDITS.md'
+    rows = {}
+    if path.exists():
+        for line in path.read_text().splitlines():
+            m = re.match(r'\| (.+?) \| \[(.+?)\]\((.*?)\) \| (.*?) \| (.*?) \|$', line)
+            if m:
+                name, fname, page, artist, lic = m.groups()
+                rows[name] = (name, fname, artist, lic, page)
+    return rows
+
+
 def main():
     src = SEED.read_text()
     q = r"'((?:[^'\\]|\\.)+)'"
@@ -100,16 +126,23 @@ def main():
     places = [tuple(v.replace("\\'", "'") for v in p) for p in places]
     print(f'{len(places)} places in seed')
     OUT.mkdir(parents=True, exist_ok=True)
+    previous = load_previous_credits()
     credits, missing = [], []
     for pid, name, city, wiki in places:
         dest = OUT / f'{pid}.jpg'
+        if dest.exists() and pid not in OVERRIDES and name in previous:
+            credits.append(previous[name])
+            continue
         try:
             chosen = None
-            fname = article_image(wiki)
-            if fname:
-                info = commons_info(fname)
-                if info:
-                    chosen = (fname, info)
+            if pid in OVERRIDES:
+                chosen = search_commons(OVERRIDES[pid])
+            else:
+                fname = article_image(wiki)
+                if fname and not NOT_A_PHOTO.search(fname):
+                    info = commons_info(fname)
+                    if info:
+                        chosen = (fname, info)
             chosen = chosen or search_commons(f'{name} {city}') or search_commons(name)
             if not chosen:
                 missing.append(pid)
